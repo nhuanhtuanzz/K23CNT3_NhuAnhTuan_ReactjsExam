@@ -4,9 +4,9 @@ import NatProductAdd from "./components/NatProductAdd";
 
 const NatApp = () => {
   const [Products, setProducts] = useState([
-    { pid: "20310900111", pName: "Nhu Anh Tuan", pQuantity: "1000", pPrice: "1000" },
-    { pid: "1", pName: "Nhu Tuan", pQuantity: "3000", pPrice: "3000" },
-    { pid: "2", pName: "Anh Tuan", pQuantity: "2000", pPrice: "2000" },
+    { natPid: "20310900111", natPName: "Nhu Anh Tuan", natPQuantity: "1000", natPPrice: "1000" },
+    { natPid: "1", natPName: "Nhu Tuan", natPQuantity: "3000", natPPrice: "3000" },
+    { natPid: "2", natPName: "Anh Tuan", natPQuantity: "2000", natPPrice: "2000" },
   ]);
 
   const addProduct = (Product) => {
@@ -14,7 +14,7 @@ const NatApp = () => {
   };
 
   const updateProduct = (updatedProduct) => {
-    setProducts(Products.map(Product => (Product.pid === updatedProduct.pid ? updatedProduct : Product)));
+    setProducts(Products.map(Product => (Product.natPid === updatedProduct.natPid ? updatedProduct : Product)));
   };
 
   return (

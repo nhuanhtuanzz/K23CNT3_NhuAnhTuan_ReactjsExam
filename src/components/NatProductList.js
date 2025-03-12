@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 const NatProductList = ({ Products, updateProduct }) => {
   const [editProduct, setEditProduct] = useState(null);
-  const [updatedInfo, setUpdatedInfo] = useState({ id: "", pName: "", pQuantity: "", pPrice: "" });
+  const [updatedInfo, setUpdatedInfo] = useState({ natPid: "", natPName: "", natPQuantity: "", natPPrice: "" });
 
   const handleEdit = (Product) => {
-    setEditProduct(Product.id);
-    setUpdatedInfo({ id: Product.id, pName: Product.pName, pQuantity: Product.pQuantity, pPrice: Product.pPrice });
+    setEditProduct(Product.natPid);
+    setUpdatedInfo({ natPid: Product.natPid, natPName: Product.natPName, natPQuantity: Product.natPQuantity, natPPrice: Product.natPPrice });
   };
 
   const handleUpdate = () => {
@@ -29,13 +29,13 @@ const NatProductList = ({ Products, updateProduct }) => {
         </thead>
         <tbody>
           {Products.map((Product) => (
-            <tr key={Product.id}>
-              {editProduct === Product.id ? (
+            <tr key={Product.natPid}>
+              {editProduct === Product.natPid ? (
                 <>
-                  <td>{updatedInfo.id}</td>
-                  <td><input type="text" className="form-control" value={updatedInfo.pName} onChange={(e) => setUpdatedInfo({ ...updatedInfo, pName: e.target.value })} /></td>
-                  <td><input type="number" className="form-control" value={updatedInfo.pQuantity} onChange={(e) => setUpdatedInfo({ ...updatedInfo, pQuantity: e.target.value })} /></td>
-                  <td><input type="number" className="form-control" value={updatedInfo.pPrice} onChange={(e) => setUpdatedInfo({ ...updatedInfo, pPrice: e.target.value })} /></td>
+                  <td>{updatedInfo.natPid}</td>
+                  <td><input type="text" className="form-control" value={updatedInfo.natPName} onChange={(e) => setUpdatedInfo({ ...updatedInfo, natPName: e.target.value })} /></td>
+                  <td><input type="number" className="form-control" value={updatedInfo.natPQuantity} onChange={(e) => setUpdatedInfo({ ...updatedInfo, natPQuantity: e.target.value })} /></td>
+                  <td><input type="number" className="form-control" value={updatedInfo.natPPrice} onChange={(e) => setUpdatedInfo({ ...updatedInfo, natPPrice: e.target.value })} /></td>
                   <td>
                     <button className="btn btn-success me-2" onClick={handleUpdate}>Lưu</button>
                     <button className="btn btn-secondary" onClick={() => setEditProduct(null)}>Hủy</button>
@@ -43,10 +43,10 @@ const NatProductList = ({ Products, updateProduct }) => {
                 </>
               ) : (
                 <>
-                  <td>{Product.pid}</td>
-                  <td>{Product.pName}</td>
-                  <td>{Product.pQuantity}</td>
-                  <td>{Product.pPrice}đ</td>
+                  <td>{Product.natPid}</td>
+                  <td>{Product.natPName}</td>
+                  <td>{Product.natPQuantity}</td>
+                  <td>{Product.natPPrice}đ</td>
                   <td>
                     <button className="btn btn-warning me-2" onClick={() => handleEdit(Product)}>Sửa</button>
                   </td>
